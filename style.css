@@ -1,0 +1,99 @@
+* { margin: 0; padding: 0; word-wrap: break-word; }
+ul, label, p { margin: 0; padding: 0; }
+ul li { float: left; list-style: none; margin: 0; padding: 0; }
+body { font-size: 14px; overflow: hidden; font-family:malgun; }
+a { display: block; color: inherit; text-decoration: none; }
+a:hover { color: inherit; }
+[class*="col-"] {  }
+
+.d-flex { flex-direction: row; } 
+.fl-cc { align-items: center; justify-content: center; }
+.jcc { justify-content: center; }
+.jcb { justify-content: space-between; }
+.ac { align-items: center; }
+.cp { cursor: pointer; }
+.poa { position: absolute; }
+.por { position: relative; }
+
+/*글자*/
+.fc0 { color: #000; }
+.fc1 { color: #fff; }
+.fc2 { color: #ceef4b; }
+.fc3 { color: red; }
+.fc4 { color: #5881EA; }
+.fc5 { color: #5ec97b; }
+.fc6 { color: #999; }
+
+.fz12 { font-size: 0.5em; }
+.fz13 { font-size: 13px; }
+.fz14 { font-size: 14px; }
+.fz16 { font-size: 16px; }
+.fz18 { font-size: 18px; }
+.fz20 { font-size: 20px; }
+.fz22 { font-size: 22px; }
+.fz24 { font-size: 24px; }
+.fz30 { font-size: 30px; }
+.fz46 { font-size: 46px; }
+
+.fwb { font-weight: bold; }
+
+@font-face {
+    font-family: 'malgunbd';
+    src: url('../fonts/malgunbd.ttf');
+}
+@font-face {
+    font-family: 'malgun';
+    src: url('../fonts/malgun.ttf');
+}
+
+hr { width: 90%; margin: 5px auto; background-color: #ccc !important; }
+.bg1 { background-color: red; }
+.bg2 { background-color: purple; }
+
+body { }
+
+/*레이아웃*/
+.screen { position: relative; min-height: 560px; }
+    
+.media_body { width: 100%; height: 100vw; position:absolute; z-index: 1;  }
+	.media_body video { width: 100%; height: 100%; object-fit: cover }
+
+header, section, footer { position: fixed; }
+
+header { width: 100%; height: 100px; padding: 10px 20px; z-index: 4; color: white; }
+	header:hover { background-color: white; transition: 0.5s; color: black; }
+/*	header:hover li, header:hover .logo a { color: black; }*/
+    header .logo { width: 300px; font-family:malgunbd; }
+	    header .logo img {  }
+	    header .logo span {  }
+    header nav.navigation {  position: relative; margin-left: 50px; }
+		    header nav .naviBox {  }
+		    header nav .naviBox li { padding: 20px; cursor: pointer; }
+	.navBg { width: 100%; min-height: 300px; background: white; position: absolute; top: -300px; left: 0; z-index: 3; transition: 0.2s; padding-left: 400px; opacity: 0; }
+		.navBg .navBg_inner { margin-top: 50px; transition:0.2s; } 
+		.navBg ul li ~ li { margin-left: 100px; } 
+		.navBg ul a:hover { color: black;  }
+		.navBg ul a:hover span { text-decoration:underline;; }
+		.navBg ul a div { color: #999; letter-spacing: -2px; word-spacing: 1px; }
+
+
+
+
+
+
+
+
+
+
+
+.contents_1 { width: 100%; margin-top: 570px; padding: 20px; z-index: 1; } 
+	.contents_1 .txtBox { font-family: malgunbd; letter-spacing: -2px;  word-spacing:-1px; } 
+		.contents_1 .txtBox .txt_3 { font-family: malgun; letter-spacing: -2px;  word-spacing:-1px; line-height: 25px; } 
+	.contents_1 .bnBox { margin-top: 50px; } 
+		.contents_1 .bnBox .bn_1 { width:250px; height: 50px; border-radius: 5px; padding: 10px; background-color : #6400ff ; transition: 0.5s; } 
+		.contents_1 .bnBox .bn_1:hover { transition: 0.5s; background-color : #8629ff ; } 
+
+
+footer { height: 70px; top: calc(100% - 70px); }
+
+

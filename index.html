@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="authorator" content="DK">
+	<title> 더조은에너지 </title>
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+	<link rel="stylesheet" href="css/fontawesome-free-5.15.4-web/css/all.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="manifest" href="manifest.json">
+	<link rel="" href="fonts.google.com">
+	<script src="js/bootstrap/bootstrap.bundle.js"></script>
+	<script src="js/jquery-3.6.0.js"></script>
+	<script src="js/script.js"></script>
+
+	<style>
+
+	.head { width: 100%; height: 100px; position: fixed; z-index: 9; transition: 0.5s; overflow: hidden; color: white; padding-left: 20px; } 
+	.head:hover { background-color: white; }
+	.head:hover .menu > a { color : black; }
+	.head .menu > a { color : white; }
+		.menu:hover { color: red; }
+		.nav { width: 900px; height: 100px; z-index: 8; } 
+		.menuBox { margin-left: 150px; } 
+			.menu { padding-left: 30px; } 
+				.sub_inner { top: 100px; left: 0px; padding-left: 300px; padding-right: 50px; transition: 0.5s;  } 
+					.sub_menuBox { width: 900px; }
+					.sub_menu_ul { width: 100%; } 
+					.sub_menu_li { padding-top: 15px; padding-bottom: 15px; color: black; letter-spacing: -2px; }
+					.sub_menu_li > a:hover { text-decoration: underline; } 
+		.menu:hover .sub_menu {  } 
+		.nav_bg { width: 100%; height: 400px; left: 0; top: 100px; background: white;transition: 0.1s; opacity: 0; box-shadow: 3px 3px 17px #fefefe; z-index: 3; }
+			.banner {  }
+		.contents { width: 100%; height: 500px; background: red; }
+
+
+
+	</style> 
+</head> 
+<body> 
+<div class="screen">
+
+	<!-- <div class="media_body">
+		<video autoplay  muted loop poster="" preload="auto">
+		  <source src="media/sun2.mp4" type="video/mp4">
+		</video>
+	</div> -->
+
+	<div class="head d-flex"> 
+		<div class="logo h-100 d-flex ac cp"> 
+			<img src="images/logo.png" alt="logo"> 
+			<a class="fz18 fwb ms-1"> 더조은 에너지 </a>
+		</div> 
+		<div class="nav d-flex fl-cc "> 
+			<div class="menuBox w-100 d-flex"> 
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16">회사소개</a>
+					<div class="sub_inner w-100 poa">
+						<div class="sub_menuBox d-flex "> 
+							<div class="sub_menu_ul d-flex flex-wrap">  
+								<div class="sub_menu_li col-6">
+									<a href="#" title="더조은에너지" class="fz16">더조은에너지</a>
+									<div class="nav_txt fz13 mt-2 fc6">국내 1위 에너지 IT기업 알아보기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="인재채용↗" class="fz16">인재채용↗</a>
+									<div class="nav_txt fz13 mt-2 fc6">채용 중인 분야 확인하기</div>
+								</div> 
+							</div> 
+							<div class="sub_menu2 col-3 ">banner</div> 
+						</div>
+					</div>
+				</div>
+
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16">시작하기</a>
+					<div class="sub_inner w-100 poa">
+						<div class="sub_menuBox d-flex "> 
+							<div class="sub_menu_ul d-flex flex-wrap">  
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">사업부지 검토</a>
+									<div class="nav_txt fz13 mt-2 fc6">비어있는 땅과 지붕으로 고정수입 만들기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">금융 자문</a>
+									<div class="nav_txt fz13 mt-2 fc6">부족한 건설 자금 해결하기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">공장 지붕 태양광</a>
+									<div class="nav_txt fz13 mt-2 fc6">유휴 지붕으로 최대 6.8억 벌기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="발전소" class="fz16">주택용 태양광</a>
+									<div class="nav_txt fz13 mt-2 fc6">우리집 전기요금 80% 절감하기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="발전소" class="fz16">아파트 태양광</a>
+									<div class="nav_txt fz13 mt-2 fc6">우리집 관리비 절감하기</div>
+								</div> 
+							</div> 
+							<div class="sub_menu2 col-3 ">banner</div> 
+						</div>
+					</div>
+				</div>
+
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16">관리하기</a>
+					<div class="sub_inner w-100 poa">
+						<div class="sub_menuBox d-flex "> 
+							<div class="sub_menu_ul d-flex flex-wrap">  
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">발전왕</a>
+									<div class="nav_txt fz13 mt-2 fc6">스마트폰으로 간편하게 발전소 관리하기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">발전왕 모니터링(RTU)</a>
+									<div class="nav_txt fz13 mt-2 fc6">알아서 다 챙겨주는 발전소 모니터링</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">발전소 매각</a>
+									<div class="nav_txt fz13 mt-2 fc6">합리적인 가격에 발전소 매각하기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="발전소" class="fz16">태양광종합공제보험</a>
+									<div class="nav_txt fz13 mt-2 fc6">화재부터 자연재해까지 폭넓게 보장받기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="발전소" class="fz16">충전왕↗</a>
+									<div class="nav_txt fz13 mt-2 fc6">전기차 충전요금 최저가 확인하기</div>
+								</div> 
+							</div> 
+							<div class="sub_menu2 col-3 "></div> 
+						</div>
+					</div>
+				</div>
+
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16">수익높이기</a>
+					<div class="sub_inner w-100 poa">
+						<div class="sub_menuBox d-flex "> 
+							<div class="sub_menu_ul d-flex flex-wrap">  
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">전력중개</a>
+									<div class="nav_txt fz13 mt-2 fc6">국내 유일 고정 수익 챙기기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">솔라브리지↗</a>
+									<div class="nav_txt fz13 mt-2 fc6">평균 수익률 11% 발전사업 투자하기</div>
+								</div> 
+							</div> 
+							<div class="sub_menu2 col-3 "></div> 
+						</div>
+					</div>
+				</div>
+
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16">인사이트</a>
+					<div class="sub_inner w-100 poa">
+						<div class="sub_menuBox d-flex "> 
+							<div class="sub_menu_ul d-flex flex-wrap">  
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">인사이트</a>
+									<div class="nav_txt fz13 mt-2 fc6">에너지 핵심 트렌드 모아 보기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">뉴스레터</a>
+									<div class="nav_txt fz13 mt-2 fc6">하루도 놓치면 안 될 에너지 소식 받기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">시장동향</a>
+									<div class="nav_txt fz13 mt-2 fc6">SMP+REC 가격 동향 확인하기</div>
+								</div> 
+							</div> 
+							<div class="sub_menu2 col-3 "></div> 
+						</div>
+					</div>
+				</div>
+
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16 divide">l</a>
+				</div>
+
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16">기업고객</a>
+					<div class="sub_inner w-100 poa">
+						<div class="sub_menuBox d-flex "> 
+							<div class="sub_menu_ul d-flex flex-wrap">  
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">기업 금융</a>
+									<div class="nav_txt fz13 mt-2 fc6">업계 1위 태양광 금융 알아보기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">시공비 100% 여신</a>
+									<div class="nav_txt fz13 mt-2 fc6">최대 9억원까지 시공비 선지급 받기</div>
+								</div> 
+								<div class="sub_menu_li col-6">
+									<a href="#" title="#" class="fz16">기자재 특가·여신</a>
+									<div class="nav_txt fz13 mt-2 fc6">업계 최저가로 기자재 구매하기</div>
+								</div> 
+							</div> 
+							<div class="sub_menu2 col-3 "></div> 
+						</div>
+					</div>
+				</div>
+
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16 divide">l</a>
+				</div>
+				
+				<div class="menu">
+					<a href="#" title="menu" class="fwb fz16">고객센터</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="nav_bg poa"></div>
+	</div>
+
+	<div class="contents d-flex">
+		
+	</div>
+
+
+
+
+
+</div>
+
+
+</body>
+</html>
+
