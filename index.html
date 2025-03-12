@@ -1,3 +1,71 @@
+<style>
+        .nav-container {
+            position: relative;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .nav-menu {
+            display: none;
+            flex-direction: column;
+            background-color: white;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            width: 100%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: max-height 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .nav-menu.open {
+            display: flex;
+            max-height: 300px;
+        }
+        .nav-menu a {
+            padding: 10px;
+            text-align: center;
+            display: block;
+            color: #6b5b4d;
+            text-decoration: none;
+        }
+        .nav-menu a:hover {
+            background-color: #f7cac9;
+            color: white;
+        }
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        @media (min-width: 1024px) {
+            .nav-toggle {
+                display: none;
+            }
+            .nav-menu {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                box-shadow: none;
+                max-height: none;
+            }
+            .nav-menu a {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+
+    
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -159,7 +227,7 @@
 </head>
 <body>
 
-	<!-- Navigation Bar (애니메이션 추가) -->
+    <!-- Navigation Bar (애니메이션 추가) -->
     <nav class="bg-white shadow-md relative top-0 left-0 w-full z-10">
         <div class="max-w-6xl mx-auto px-4">
             <!-- 상단 네비게이션 (로고 & 연락처) -->
@@ -183,8 +251,19 @@
         </div>
     </nav>
 
+    <!-- 네비게이션 -->
+    <nav class="nav-container">
+        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+        <div class="nav-menu">
+            <a href="#about">소개</a>
+            <a href="#services">서비스</a>
+            <a href="#portfolio">포트폴리오</a>
+            <a href="#contact">문의</a>
+        </div>
+    </nav>
 
-	<!-- 슬라이드 섹션 -->
+
+    <!-- 슬라이드 섹션 -->
     <section class="slider-container">
         <div class="slider">
             <div class="slide"><img src="slide_1.jpg" alt="Slide 1"></div>
@@ -194,6 +273,7 @@
         <button class="slider-btn prev" onclick="prevSlide()">❮</button>
         <button class="slider-btn next" onclick="nextSlide()">❯</button>
     </section>
+	
     <script>
         let index = 0;
         const slides = document.querySelectorAll('.slide img');
@@ -267,6 +347,14 @@
         }
 
         startAutoSlide();
+
+        function toggleMenu() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("open");
+        }
+	
+
+	    
     </script>
 
 
