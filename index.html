@@ -5,14 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Start Your Brand</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
     <style>
-	.bg-pinks {
-	    background-color : pink;
-	}
+    	.fc_base { color: #5a3e36 ; }
+    	.fc_nav { color: #6b5b4d; }
+    	.fc_nav:hover { color: #3d2b1f; }
+    	.fc_head { color: #8b5e83; }
+    	.fc_sub { color: #746d5f; }
+    	.fc_btn { color: #ffffff; }
+    	.fc_foo { color: #3d2b1f; }
+
+    	body { 
+    		font-family: 'Noto Sans KR', sans-serif;
+   			color: #D81B60; /* 기본 텍스트 */ 
+		}
+
+		/*	배경	*/
+		.bg_base { background : linear-gradient(to right, #f7cac9, #f4e1d2); }
+		.bg_btn { background : linear-gradient(to right, #ff9a9e, #fad0c4); }
+
         .floating-icons {
             position: fixed;
             right: 20px;
-            top: 250px;
+            bottom: 250px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -35,17 +50,234 @@
             width: 50px;
             height: 50px;
         }
+        /* 헤더 제목 */ 
+		h1, h2 {
+		    color: #D81B60; /* 모브 핑크 */
+		}
+
+		/* 본문 서브 텍스트 */
+		p {
+		    color: #C2185B; /* 카키 브라운 */
+		}
+		/* 버튼 */
+		button {
+		    background-color: #f7cac9;
+		    color: #ffffff;
+		    font-weight: bold;
+		    padding: 10px 20px;
+		    border-radius: 5px;
+		    transition: background 0.3s ease-in-out;
+		}
+
+		button:hover {
+		    background-color: #f4e1d2; /* 연한 베이지 */
+		}
+
+		/* 푸터 */
+		footer {
+		    background-color: #3d2b1f;
+		    color: #ffffff;
+		    text-align: center;
+		    padding: 20px;
+		}
+
+        /* 네비게이션 애니메이션 */
+        .nav-menu li a {
+        	color: #C2185B; /* 기본 브라운 */
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+        .nav-menu li a:hover {
+        	color: #3d2b1f; /* 호버 시 다크 초콜릿 브라운 */
+        }
+        .nav-menu li a:hover::after {
+            transform: scaleX(1);
+        }
+
+
+         /* 슬라이드 컨테이너 */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .slider {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            width: 100%;
+            flex: 0 0 100%;
+            transition: 1s;
+        }
+        .slider img {
+            width: 100%;
+            height: 600px;
+/*            object-fit: cover;
+            object-position: center;*/
+            position: relative;
+		    top: -50px; /* 위로 20px 이동 */
+		    right: 350px; /* 위로 20px 이동 */
+        }
+        /* 슬라이드 버튼 */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* PC 버전에서 슬라이드 숨김 */
+        @media (min-width: 1024px) {
+            .slider-container {
+                display: none;
+            }
+        }
+
     </style>
 </head>
-<body class="bg-pinks text-black">
+<body>
+
+	<!-- Navigation Bar (애니메이션 추가) -->
+    <nav class="bg-white shadow-md relative top-0 left-0 w-full z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- 상단 네비게이션 (로고 & 연락처) -->
+            <div class="flex justify-between items-center py-2 border-b">
+                <a href="#" class="text-2xl font-bold "> 에이스컨설팅 </a>
+                <div class="flex space-x-4 text-sm text-gray-700">
+                    <a href="tel:+01021951231" class="hover:text-black transition-colors duration-300">📞 010-2195-1231</a>
+                    <a href="https://open.kakao.com/o/sXHWGclh" class="hover:text-black transition-colors duration-300">✉ 카톡ID : posr </a>
+                </div>
+            </div>
+            <!-- 하단 네비게이션 (메뉴) -->
+            <div class="flex justify-between items-center py-3">
+                <ul class="hidden md:flex space-x-6 nav-menu">
+                    <li><a href="#about" class="text-gray-700 hover:text-black"> 소개 </a></li>
+                    <li><a href="#features" class="text-gray-700 hover:text-black"> 정보 </a></li>
+                    <li><a href="#success" class="text-gray-700 hover:text-black"> 성공사례 </a></li>
+                    <li><a href="#contact" class="text-gray-700 hover:text-black"> 문의 </a></li>
+                </ul>
+                <button class="md:hidden text-gray-700" id="menu-toggle">☰</button>
+            </div>
+        </div>
+    </nav>
+
+
+	<!-- 슬라이드 섹션 -->
+    <section class="slider-container">
+        <div class="slider">
+            <div class="slide"><img src="images/slide_1.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="images/slide_2.png" alt="Slide 2"></div>
+            <div class="slide"><img src="images/slide_3.png" alt="Slide 3"></div>
+        </div>
+        <button class="slider-btn prev" onclick="prevSlide()">❮</button>
+        <button class="slider-btn next" onclick="nextSlide()">❯</button>
+    </section>
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.slide img');
+        const slider = document.querySelector('.slider');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function pauseAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        function resumeAutoSlide() {
+            resetAutoSlide();
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            setTimeout(startAutoSlide, 3000);
+        }
+
+        function showSlide(i) {
+            index = (i + totalSlides) % totalSlides;
+            slides[index].style.transition = "transform 0.5s ease-in-out";
+            slides[index].style.transform = "scale(1.5)";
+            slider.style.transition = "transform 0.5s ease-in-out";
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            setTimeout(() => {
+                slides[index].style.transform = "scale(1)";
+            }, 500);
+        }
+
+        function nextSlide() {
+            slides[index].style.transform = "scale(1.5)";
+            setTimeout(() => {
+                if (index === totalSlides - 1) {
+                    slider.style.transition = "none";
+                    slider.style.transform = "translateX(100%)";
+                    setTimeout(() => {
+                        slider.style.transition = "transform 0.5s ease-in-out";
+                        index = 0;
+                        showSlide(index);
+                    }, 50);
+                } else {
+                    showSlide(index + 1);
+                }
+            }, 100);
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            slides[index].style.transform = "scale(1.5)";
+            setTimeout(() => {
+                if (index === 0) {
+                    slider.style.transition = "none";
+                    slider.style.transform = `translateX(-${totalSlides * 100}%)`;
+                    setTimeout(() => {
+                        slider.style.transition = "transform 0.5s ease-in-out";
+                        index = totalSlides - 1;
+                        showSlide(index);
+                    }, 50);
+                } else {
+                    showSlide(index - 1);
+                }
+            }, 100);
+            resetAutoSlide();
+        }
+
+        startAutoSlide();
+    </script>
+
+
     <!-- Hero Section -->
-    <header class="text-center py-16">
-        <h1 class="text-5xl font-bold px-6">Make the best outcome out of  <span class="text-black">what we have</span></h1>
-        <button class="mt-4 px-6 py-3 bg-pink-50 text-white">가지고 있는 것을 최대한 활용하세요 </button>
+    <header class="text-center py-20 bg_base">
+        <h1 class="text-5xl font-bold px-6 ">Make the best outcome out of  <span class="">what we have</span></h1>
+        <button class="mt-6 px-6 py-3 bg_btn text-white">가지고 있는 것을 최대한 활용하세요 </button>
     </header>
     
     <!-- 브랜드 소개 -->
-    <section class="text-center py-12">
+    <section class="text-center py-5  bg_btn">
         <h2 class="text-3xl font-semibold px-6 "> 원하는 게 있나요? 현실로 만들 수 있어요^^ </h2>
         <p class="mt-4 text-lg px-6 mx-5 whitespace-pre-line">
 			원하는 목표가 있다면 그걸 위해 조금 준비하는 과정은 누구에게나 필요한 법입니다. 
@@ -67,7 +299,7 @@
 
     <!-- 기능 소개 -->
     <section class="py-16 bg-pink-50">
-	실제 리뷰
+    	<p class="mt-4 text-lg px-6 mx-0 p-3 whitespace-pre-line font-bold">실제 리뷰</p>
         <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
             <div class="p-6 bg-pink-100 shadow-lg rounded-lg">
                 <h3 class="text-xl font-semibold"> 김하늘/28 🕰️시간의자유로움 </h3>
@@ -122,16 +354,16 @@
     <footer class="py-8 text-center bg-gray-900 text-white">
         <h2 class="text-2xl font-bold">START YOUR BRAND</h2>
         <p class="mt-2">지금 시작하세요.</p>
-        <button class="mt-4 px-6 py-3 bg-white text-black"> 집,차 금방사러 가기 </button>
+        <button class="mt-4 px-6 py-3 bg-white text-black"> 전화, 카톡주세요^^ </button>
     </footer>
 
     <!-- Floating Chat & Call Icons -->
     <div class="floating-icons">
-        <a href="https://pf.kakao.com/posr" target="_blank" title="카톡 상담">
-            <img src="images/kakao.png" alt="카카오톡">
+        <a href="https://open.kakao.com/o/sXHWGclh" target="_blank" title="카톡 상담">
+            <img src="kakao.png" alt="카카오톡">
         </a>
-        <a href="tel:/01021951231" title="전화 상담">
-            <img src="images/call.png" alt="전화">
+        <a href="tel:+01021951231" title="전화 상담">
+            <img src="call.png" alt="전화">
         </a>
     </div>
 
