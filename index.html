@@ -1,71 +1,3 @@
-<style>
-        .nav-container {
-            position: relative;
-            background-color: white;
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .nav-menu {
-            display: none;
-            flex-direction: column;
-            background-color: white;
-            position: absolute;
-            top: 50px;
-            left: 0;
-            width: 100%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            transition: max-height 0.3s ease-in-out;
-            max-height: 0;
-            overflow: hidden;
-        }
-        .nav-menu.open {
-            display: flex;
-            max-height: 300px;
-        }
-        .nav-menu a {
-            padding: 10px;
-            text-align: center;
-            display: block;
-            color: #6b5b4d;
-            text-decoration: none;
-        }
-        .nav-menu a:hover {
-            background-color: #f7cac9;
-            color: white;
-        }
-        .nav-toggle {
-            display: block;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-        }
-        @media (min-width: 1024px) {
-            .nav-toggle {
-                display: none;
-            }
-            .nav-menu {
-                display: flex;
-                flex-direction: row;
-                position: static;
-                box-shadow: none;
-                max-height: none;
-            }
-            .nav-menu a {
-                padding: 10px 20px;
-            }
-        }
-    </style>
-
-    
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -251,18 +183,6 @@
         </div>
     </nav>
 
-    <!-- 네비게이션 -->
-    <nav class="nav-container">
-        <button class="nav-toggle" onclick="toggleMenu()">☰</button>
-        <div class="nav-menu">
-            <a href="#about">소개</a>
-            <a href="#services">서비스</a>
-            <a href="#portfolio">포트폴리오</a>
-            <a href="#contact">문의</a>
-        </div>
-    </nav>
-
-
     <!-- 슬라이드 섹션 -->
     <section class="slider-container">
         <div class="slider">
@@ -273,89 +193,6 @@
         <button class="slider-btn prev" onclick="prevSlide()">❮</button>
         <button class="slider-btn next" onclick="nextSlide()">❯</button>
     </section>
-	
-    <script>
-        let index = 0;
-        const slides = document.querySelectorAll('.slide img');
-        const slider = document.querySelector('.slider');
-        const totalSlides = slides.length;
-        let slideInterval;
-
-        function startAutoSlide() {
-            slideInterval = setInterval(nextSlide, 3000);
-        }
-
-        function pauseAutoSlide() {
-            clearInterval(slideInterval);
-        }
-
-        function resumeAutoSlide() {
-            resetAutoSlide();
-        }
-
-        function resetAutoSlide() {
-            clearInterval(slideInterval);
-            setTimeout(startAutoSlide, 3000);
-        }
-
-        function showSlide(i) {
-            index = (i + totalSlides) % totalSlides;
-            slides[index].style.transition = "transform 0.5s ease-in-out";
-            slides[index].style.transform = "scale(1.5)";
-            slider.style.transition = "transform 0.5s ease-in-out";
-            slider.style.transform = `translateX(-${index * 100}%)`;
-            
-            setTimeout(() => {
-                slides[index].style.transform = "scale(1)";
-            }, 500);
-        }
-
-        function nextSlide() {
-            slides[index].style.transform = "scale(1.5)";
-            setTimeout(() => {
-                if (index === totalSlides - 1) {
-                    slider.style.transition = "none";
-                    slider.style.transform = "translateX(100%)";
-                    setTimeout(() => {
-                        slider.style.transition = "transform 0.5s ease-in-out";
-                        index = 0;
-                        showSlide(index);
-                    }, 50);
-                } else {
-                    showSlide(index + 1);
-                }
-            }, 100);
-            resetAutoSlide();
-        }
-
-        function prevSlide() {
-            slides[index].style.transform = "scale(1.5)";
-            setTimeout(() => {
-                if (index === 0) {
-                    slider.style.transition = "none";
-                    slider.style.transform = `translateX(-${totalSlides * 100}%)`;
-                    setTimeout(() => {
-                        slider.style.transition = "transform 0.5s ease-in-out";
-                        index = totalSlides - 1;
-                        showSlide(index);
-                    }, 50);
-                } else {
-                    showSlide(index - 1);
-                }
-            }, 100);
-            resetAutoSlide();
-        }
-
-        startAutoSlide();
-
-        function toggleMenu() {
-            const menu = document.querySelector(".nav-menu");
-            menu.classList.toggle("open");
-        }
-	
-
-	    
-    </script>
 
 
     <!-- Hero Section -->
@@ -455,5 +292,93 @@
         </a>
     </div>
 
+
+
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.slide img');
+        const slider = document.querySelector('.slider');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function pauseAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        function resumeAutoSlide() {
+            resetAutoSlide();
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            setTimeout(startAutoSlide, 3000);
+        }
+
+        function showSlide(i) {
+            index = (i + totalSlides) % totalSlides;
+            slides[index].style.transition = "transform 0.5s ease-in-out";
+            slides[index].style.transform = "scale(1.5)";
+            slider.style.transition = "transform 0.5s ease-in-out";
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            setTimeout(() => {
+                slides[index].style.transform = "scale(1)";
+            }, 500);
+        }
+
+        function nextSlide() {
+            slides[index].style.transform = "scale(1.5)";
+            setTimeout(() => {
+                if (index === totalSlides - 1) {
+                    slider.style.transition = "none";
+                    slider.style.transform = "translateX(100%)";
+                    setTimeout(() => {
+                        slider.style.transition = "transform 0.5s ease-in-out";
+                        index = 0;
+                        showSlide(index);
+                    }, 50);
+                } else {
+                    showSlide(index + 1);
+                }
+            }, 100);
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            slides[index].style.transform = "scale(1.5)";
+            setTimeout(() => {
+                if (index === 0) {
+                    slider.style.transition = "none";
+                    slider.style.transform = `translateX(-${totalSlides * 100}%)`;
+                    setTimeout(() => {
+                        slider.style.transition = "transform 0.5s ease-in-out";
+                        index = totalSlides - 1;
+                        showSlide(index);
+                    }, 50);
+                } else {
+                    showSlide(index - 1);
+                }
+            }, 100);
+            resetAutoSlide();
+        }
+
+        startAutoSlide();
+
+        function toggleMenu() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("open");
+        }
+	
+
+	    
+	</script>
+
+
+
+	
 </body>
 </html>
