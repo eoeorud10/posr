@@ -159,30 +159,47 @@
 </head>
 <body>
 
-    <!-- Navigation Bar (애니메이션 추가) -->
-    <nav class="bg-white shadow-md relative top-0 left-0 w-full z-10">
-        <div class="max-w-6xl mx-auto px-4">
-            <!-- 상단 네비게이션 (로고 & 연락처) -->
-            <div class="flex justify-between items-center py-2 border-b">
-                <a href="#" class="text-2xl font-bold "> 에이스컨설팅 </a>
-                <div class="flex space-x-4 text-sm text-gray-700">
-                    <a href="tel:01021951231" class="hover:text-black transition-colors duration-300">📞010-2195-1231</a>
-                    <a href="https://open.kakao.com/o/sXHWGclh" class="hover:text-black transition-colors duration-300">✉톡ID posr</a>
-                </div>
-            </div>
-            <!-- 하단 네비게이션 (메뉴) -->
-            <div class="flex justify-between items-center py-3">
-                <ul class="hidden md:flex space-x-6 nav-menu">
-                    <li><a href="#about" class="text-gray-700 hover:text-black"> 소개 </a></li>
-                    <li><a href="#features" class="text-gray-700 hover:text-black"> 정보 </a></li>
-                    <li><a href="#success" class="text-gray-700 hover:text-black"> 성공사례 </a></li>
-                    <li><a href="#contact" class="text-gray-700 hover:text-black"> 문의 </a></li>
-                </ul>
-                <button class="md:hidden text-gray-700" id="menu-toggle">☰</button>
+<!-- Navigation Bar (애니메이션 추가) -->
+<nav class="bg-white shadow-md relative top-0 left-0 w-full z-10">
+    <div class="max-w-6xl mx-auto px-4">
+        <!-- 상단 네비게이션 (로고 & 연락처) -->
+        <div class="flex justify-between items-center py-2 border-b">
+            <a href="#" class="text-2xl font-bold "> 에이스컨설팅 </a>
+            <div class="flex space-x-4 text-sm text-gray-700">
+                <a href="tel:01021951231" class="hover:text-black transition-colors duration-300">📞010-2195-1231</a>
+                <a href="https://open.kakao.com/o/sXHWGclh" class="hover:text-black transition-colors duration-300">✉톡ID posr</a>
             </div>
         </div>
-    </nav>
+        <!-- 하단 네비게이션 (메뉴) -->
+        <div class="flex justify-between items-center py-3">
+            <ul class="hidden md:flex space-x-6 nav-menu">
+                <li><a href="#about" class="text-gray-700 hover:text-black"> 소개 </a></li>
+                <li><a href="#features" class="text-gray-700 hover:text-black"> 정보 </a></li>
+                <li><a href="#success" class="text-gray-700 hover:text-black"> 성공사례 </a></li>
+                <li><a href="#contact" class="text-gray-700 hover:text-black"> 문의 </a></li>
+            </ul>
+            <!-- 모바일 메뉴 버튼 -->
+            <button class="md:hidden text-gray-700" id="menu-toggle">☰</button>
+        </div>
+    </div>
+    <!-- 모바일 드롭다운 메뉴 -->
+    <div id="mobile-menu" class="hidden md:hidden flex-col bg-white shadow-md">
+        <a href="#about" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">소개</a>
+        <a href="#features" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">정보</a>
+        <a href="#success" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">성공사례</a>
+        <a href="#contact" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">문의</a>
+    </div>
+</nav>
 
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        var mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+
+	
+    
     <!-- 슬라이드 섹션 -->
     <section class="slider-container">
         <div class="slider">
