@@ -178,12 +178,14 @@
                 <li><a href="#success" class="text-gray-700 hover:text-black"> 성공사례 </a></li>
                 <li><a href="#contact" class="text-gray-700 hover:text-black"> 문의 </a></li>
             </ul>
-            <!-- 모바일 메뉴 버튼 -->
-            <button class="md:hidden text-gray-700" id="menu-toggle">☰</button>
+            <!-- 모바일 메뉴 버튼 (햄버거 버튼 & 주변 영역) -->
+            <div id="menu-button" class="md:hidden w-full cursor-pointer flex justify-end">
+                <button class="text-gray-700 text-2xl px-4 py-2" id="menu-toggle">☰</button>
+            </div>
         </div>
     </div>
     <!-- 모바일 드롭다운 메뉴 -->
-    <div id="mobile-menu" class="hidden md:hidden flex-col bg-white shadow-md">
+    <div id="mobile-menu" class="hidden md:hidden flex-col bg-white shadow-md transition-all duration-300 overflow-hidden max-h-0 opacity-0">
         <a href="#about" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">소개</a>
         <a href="#features" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">정보</a>
         <a href="#success" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">성공사례</a>
@@ -192,9 +194,20 @@
 </nav>
 
 <script>
-    document.getElementById('menu-toggle').addEventListener('click', function() {
+    document.getElementById('menu-button').addEventListener('click', function() {
         var mobileMenu = document.getElementById('mobile-menu');
-        mobileMenu.classList.toggle('hidden');
+
+        if (mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.style.maxHeight = "300px";  // 애니메이션 효과
+            mobileMenu.style.opacity = "1";
+        } else {
+            mobileMenu.style.maxHeight = "0";
+            mobileMenu.style.opacity = "0";
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300); // 애니메이션 지속시간 후 숨김 처리
+        }
     });
 </script>
 
