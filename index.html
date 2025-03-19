@@ -7,22 +7,24 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
     <style>
-    	.fc_base { color: #5a3e36 ; }
-    	.fc_nav { color: #6b5b4d; }
-    	.fc_nav:hover { color: #3d2b1f; }
-    	.fc_head { color: #8b5e83; }
-    	.fc_sub { color: #746d5f; }
-    	.fc_btn { color: #ffffff; }
-    	.fc_foo { color: #3d2b1f; }
 
-    	body { 
-    		font-family: 'Noto Sans KR', sans-serif;
-   			color: #D81B60; /* 기본 텍스트 */ 
-		}
+        /*글자색상*/
+        .fc_base { color: #5a3e36 ; }
+        .fc_nav { color: #6b5b4d; }
+        .fc_nav:hover { color: #3d2b1f; }
+        .fc_head { color: #8b5e83; }
+        .fc_sub { color: #746d5f; }
+        .fc_btn { color: #ffffff; }
+        .fc_foo { color: #3d2b1f; }
 
-		/*	배경	*/
-		.bg_base { background : linear-gradient(to right, #f7cac9, #f4e1d2); }
-		.bg_btn { background : linear-gradient(to right, #ff9a9e, #fad0c4); }
+        /*  배경  */
+        .bg_base { background : linear-gradient(to right, #f7cac9, #f4e1d2); }
+        .bg_btn { background : linear-gradient(to right, #ff9a9e, #fad0c4); }
+
+        body { 
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #D81B60; /* 기본 텍스트 */ 
+        }
 
         .floating-icons {
             position: fixed;
@@ -50,40 +52,41 @@
             width: 50px;
             height: 50px;
         }
+
         /* 헤더 제목 */ 
-		h1, h2 {
-		    color: #D81B60; /* 모브 핑크 */
-		}
+        h1, h2 {
+            color: #D81B60; /* 모브 핑크 */
+        }
 
-		/* 본문 서브 텍스트 */
-		p {
-		    color: #C2185B; /* 카키 브라운 */
-		}
-		/* 버튼 */
-		button {
-		    background-color: #f7cac9;
-		    color: #ffffff;
-		    font-weight: bold;
-		    padding: 10px 20px;
-		    border-radius: 5px;
-		    transition: background 0.3s ease-in-out;
-		}
+        /* 본문 서브 텍스트 */
+        p {
+            color: #C2185B; /* 카키 브라운 */
+        }
+        /* 버튼 */
+        button {
+            background-color: #f7cac9;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
 
-		button:hover {
-		    background-color: #f4e1d2; /* 연한 베이지 */
-		}
+        button:hover {
+            background-color: #f4e1d2; /* 연한 베이지 */
+        }
 
-		/* 푸터 */
-		footer {
-		    background-color: #3d2b1f;
-		    color: #ffffff;
-		    text-align: center;
-		    padding: 20px;
-		}
+        /* 푸터 */
+        footer {
+            background-color: #3d2b1f;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
 
         /* 네비게이션 애니메이션 */
         .nav-menu li a {
-        	color: #C2185B; /* 기본 브라운 */
+            color: #C2185B; /* 기본 브라운 */
             position: relative;
             transition: color 0.3s ease-in-out;
         }
@@ -99,7 +102,7 @@
             transition: transform 0.3s ease-in-out;
         }
         .nav-menu li a:hover {
-        	color: #3d2b1f; /* 호버 시 다크 초콜릿 브라운 */
+            color: #3d2b1f; /* 호버 시 다크 초콜릿 브라운 */
         }
         .nav-menu li a:hover::after {
             transform: scaleX(1);
@@ -129,8 +132,8 @@
 /*            object-fit: cover;
             object-position: center;*/
             position: relative;
-		    top: -50px; /* 위로 20px 이동 */
-		    right: 250px; /* 위로 20px 이동 */
+            top: -50px; /* 위로 20px 이동 */
+            right: 250px; /* 위로 20px 이동 */
         }
         /* 슬라이드 버튼 */
         .slider-btn {
@@ -153,65 +156,51 @@
             .slider-container {
                 display: none;
             }
+            .nav_bottom { padding : 10px 0 10px 0; }
         }
+
 
     </style>
 </head>
 <body>
 
-<!-- Navigation Bar (애니메이션 추가) -->
-<nav class="bg-white shadow-md relative top-0 left-0 w-full z-10">
-    <div class="max-w-6xl mx-auto px-4">
-        <!-- 상단 네비게이션 (로고 & 연락처) -->
-        <div class="flex justify-between items-center py-2 border-b">
-            <a href="#" class="text-2xl font-bold "> 에이스컨설팅 </a>
-            <div class="flex space-x-4 text-sm text-gray-700">
-                <a href="tel:01021951231" class="hover:text-black transition-colors duration-300">📞010-2195-1231</a>
-                <a href="https://open.kakao.com/o/sXHWGclh" class="hover:text-black transition-colors duration-300">✉톡ID posr</a>
+    <!-- Navigation Bar (애니메이션 추가) -->
+    <nav class="bg-white shadow-md relative top-0 left-0 w-full z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- 상단 네비게이션 (로고 & 연락처) -->
+            <div class="flex justify-between items-center py-2 border-b">
+                <a href="#" class="text-2xl font-bold "> 에이스컨설팅 </a>
+                <div class="flex space-x-4 text-sm text-gray-700">
+                    <a href="tel:01021951231" class="hover:text-black transition-colors duration-300">📞010-2195-1231</a>
+                    <a href="https://open.kakao.com/o/sXHWGclh" class="hover:text-black transition-colors duration-300">✉톡ID posr</a>
+                </div>
+            </div>
+            <!-- 하단 네비게이션 (메뉴) -->
+            <div class="flex justify-between items-center nav_bottom">
+                <ul class="hidden md:flex space-x-6 nav-menu">
+                    <li><a href="about.html" class="text-gray-700 hover:text-black"> 소개 </a></li>
+                    <li><a href="features.html" class="text-gray-700 hover:text-black"> 정보 </a></li>
+                    <li><a href="success.html" class="text-gray-700 hover:text-black"> 성공사례 </a></li>
+                    <li><a href="contact.html" class="text-gray-700 hover:text-black"> 문의 </a></li>
+                </ul>
+                <!-- 모바일 메뉴 버튼 (햄버거 버튼 & 주변 영역) -->
+                <div id="menu-button" class="md:hidden w-full cursor-pointer flex justify-end py-1">
+                    <button class="text-gray-700 text-2xl px-4 py-0" id="menu-toggle">☰</button>
+                </div>
             </div>
         </div>
-        <!-- 하단 네비게이션 (메뉴) -->
-        <div class="flex justify-between items-center py-3">
-            <ul class="hidden md:flex space-x-6 nav-menu">
-                <li><a href="#about" class="text-gray-700 hover:text-black"> 소개 </a></li>
-                <li><a href="#features" class="text-gray-700 hover:text-black"> 정보 </a></li>
-                <li><a href="#success" class="text-gray-700 hover:text-black"> 성공사례 </a></li>
-                <li><a href="#contact" class="text-gray-700 hover:text-black"> 문의 </a></li>
-            </ul>
-            <!-- 모바일 메뉴 버튼 (햄버거 버튼 & 주변 영역) -->
-            <div id="menu-button" class="md:hidden w-full cursor-pointer flex justify-end py-1">
-                <button class="text-gray-700 text-2xl px-4 py-0" id="menu-toggle">☰</button>
-            </div>
+        <!-- 모바일 드롭다운 메뉴 -->
+        <div id="mobile-menu" class="hidden md:hidden flex-col bg-white shadow-md transition-all duration-300 overflow-hidden max-h-0 opacity-0">
+            <a href="about.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">소개</a>
+            <a href="features.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">정보</a>
+            <a href="success.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">성공사례</a>
+            <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">문의</a>
         </div>
-    </div>
-    <!-- 모바일 드롭다운 메뉴 -->
-    <div id="mobile-menu" class="hidden md:hidden flex-col bg-white shadow-md transition-all duration-300 overflow-hidden max-h-0 opacity-0">
-        <a href="#about" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">소개</a>
-        <a href="#features" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">정보</a>
-        <a href="#success" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">성공사례</a>
-        <a href="#contact" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">문의</a>
-    </div>
-</nav>
+    </nav>
 
-<script>
-    document.getElementById('menu-button').addEventListener('click', function() {
-        var mobileMenu = document.getElementById('mobile-menu');
 
-        if (mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.style.maxHeight = "300px";  // 애니메이션 효과
-            mobileMenu.style.opacity = "1";
-        } else {
-            mobileMenu.style.maxHeight = "0";
-            mobileMenu.style.opacity = "0";
-            setTimeout(() => {
-                mobileMenu.classList.add('hidden');
-            }, 300); // 애니메이션 지속시간 후 숨김 처리
-        }
-    });
-</script>
 
-	
+    
     
     <!-- 슬라이드 섹션 -->
     <section class="slider-container">
@@ -235,26 +224,26 @@
     <section class="text-center py-5  bg_btn">
         <h2 class="text-3xl font-semibold px-6 "> 원하는 게 있나요? 현실로 만들 수 있어요^^ </h2>
         <p class="mt-4 text-lg px-6 mx-5 whitespace-pre-line">
-			원하는 목표가 있다면 그걸 위해 조금 준비하는 과정은 누구에게나 필요한 법입니다. 
-			공무원이되려면 시험공부를 하는 시간이 필요할테고, 네일샵을 하려면 기술을 배우면서 사업자금 마련할 필요도 있을테죠.
-			실제로 돈모으시고 필라테스학원, 네일샵,  장사 밑천 마련해서 잘 사시는 분 많으세요.
-			이 일이 고민이 되시는 분이 분명히 있을 겁니다.
-			하지만 생각하는 것보다 생각보다 괜찮아요. 막 위험한 일이 아니에요, 싫으면 싫다해도 누구도 뭐라안해요.
-			그리고 밑천도 빨리 마련할 수 있구요. 
-			솔직히 돈이 있어야 하고싶은 거 맘껏 할 수 있는데 현실적으로는 쉽지가 않아요.
-			그런데 당신의 외모나 매력이 넘치고 이렇게 돈 많이  벌 수 있는 기회가 있는데 안쓰시면 아깝잖아요.
-			'Make the best outcome out of what we have' 라는 말이있어요.
-			'우리가 가진 것을 최대한 활용하기'
-			당신이 가진 무기는 무엇인가요? 
-			그 무기 제대로 쓸 수 있게 무대만들어 드리겠습니다.
-			연락주세요.
-			같이 한번 잘살아봅시다.
+            원하는 목표가 있다면 그걸 위해 조금 준비하는 과정은 누구에게나 필요한 법입니다. 
+            공무원이되려면 시험공부를 하는 시간이 필요할테고, 네일샵을 하려면 기술을 배우면서 사업자금 마련할 필요도 있을테죠.
+            실제로 돈모으시고 필라테스학원, 네일샵,  장사 밑천 마련해서 잘 사시는 분 많으세요.
+            이 일이 고민이 되시는 분이 분명히 있을 겁니다.
+            하지만 생각하는 것보다 생각보다 괜찮아요. 막 위험한 일이 아니에요, 싫으면 싫다해도 누구도 뭐라안해요.
+            그리고 밑천도 빨리 마련할 수 있구요. 
+            솔직히 돈이 있어야 하고싶은 거 맘껏 할 수 있는데 현실적으로는 쉽지가 않아요.
+            그런데 당신의 외모나 매력이 넘치고 이렇게 돈 많이  벌 수 있는 기회가 있는데 안쓰시면 아깝잖아요.
+            'Make the best outcome out of what we have' 라는 말이있어요.
+            '우리가 가진 것을 최대한 활용하기'
+            당신이 가진 무기는 무엇인가요? 
+            그 무기 제대로 쓸 수 있게 무대만들어 드리겠습니다.
+            연락주세요.
+            같이 한번 잘살아봅시다.
         </p>
     </section>
 
     <!-- 기능 소개 -->
     <section class="py-16 bg-pink-50">
-    	<p class="mt-4 text-lg px-6 mx-0 p-3 whitespace-pre-line font-bold">실제 리뷰</p>
+        <p class="mt-4 text-lg px-6 mx-0 p-3 whitespace-pre-line font-bold">실제 리뷰</p>
         <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
             <div class="p-6 bg-pink-100 shadow-lg rounded-lg">
                 <h3 class="text-xl font-semibold"> 김하늘/28 🕰️시간의자유로움 </h3>
@@ -269,9 +258,9 @@
             <div class="p-6  bg-pink-100 shadow-lg rounded-lg">
                 <h3 class="text-xl font-semibold"> 지혜/20 🙆‍♀️일한지 10일만에 1000벌었어요ㅎ </h3>
                 <p class="mt-2 text-gray-600">
-			솔직히 고민했던 게 아까울 정도! 가볍게 하루만 해봐도 알 수 있어요~
+            솔직히 고민했던 게 아까울 정도! 가볍게 하루만 해봐도 알 수 있어요~
 혹시 고민 중이라면, 하루만 가볍게 체험해봐도 분위기랑 일하는 방식이 어떤지 바로 감 잡을 수 있을 거예요.하루에 적어도 50만원 이상 가능하구 저처럼 열심히만 하면 하루에 아이폰 한대사요 ㅇㅅㅇ
-		</p>
+        </p>
             </div>
         </div>
     </section>
@@ -323,7 +312,26 @@
     </div>
 
 
+    <!-- 네비게이션 모바일버전 -->
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobile-menu');
 
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.style.maxHeight = "300px";  // 애니메이션 효과
+                mobileMenu.style.opacity = "1";
+            } else {
+                mobileMenu.style.maxHeight = "0";
+                mobileMenu.style.opacity = "0";
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300); // 애니메이션 지속시간 후 숨김 처리
+            }
+        });
+    </script>
+
+    <!-- 섹션 슬라이드 -->
     <script>
         let index = 0;
         const slides = document.querySelectorAll('.slide img');
@@ -402,13 +410,13 @@
             const menu = document.querySelector(".nav-menu");
             menu.classList.toggle("open");
         }
-	
+    
 
-	    
-	</script>
+        
+    </script>
 
 
 
-	
+    
 </body>
 </html>
