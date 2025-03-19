@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Your Brand</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+    <style>
+
+        /*글자색상*/
+        .fc_base { color: #5a3e36 ; }
+        .fc_nav { color: #6b5b4d; }
+        .fc_nav:hover { color: #3d2b1f; }
+        .fc_head { color: #8b5e83; }
+        .fc_sub { color: #746d5f; }
+        .fc_btn { color: #ffffff; }
+        .fc_foo { color: #3d2b1f; }
+
+        /*  배경  */
+        .bg_base { background : linear-gradient(to right, #f7cac9, #f4e1d2); }
+        .bg_btn { background : linear-gradient(to right, #ff9a9e, #fad0c4); }
+
+        body { 
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #D81B60; /* 기본 텍스트 */ 
+        }
+
+        .floating-icons {
+            position: fixed;
+            right: 20px;
+            bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .floating-icons a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+/*            background-color: #25D366;*/
+            border-radius: 50%;
+/*            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);*/
+            transition: transform 0.3s ease;
+        }
+        .floating-icons a:hover { 
+            transform: scale(1.3);
+        }
+        .floating-icons a img {
+            width: 50px;
+            height: 50px;
+        }
+
+        /* 헤더 제목 */ 
+        h1, h2 {
+            color: #D81B60; /* 모브 핑크 */
+        }
+
+        /* 본문 서브 텍스트 */
+        p {
+            color: #C2185B; /* 카키 브라운 */
+        }
+        /* 버튼 */
+        button {
+            background-color: #f7cac9;
+            color: #ffffff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #f4e1d2; /* 연한 베이지 */
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #3d2b1f;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* 네비게이션 애니메이션 */
+        .nav-menu li a {
+            color: #C2185B; /* 기본 브라운 */
+            position: relative;
+            transition: color 0.3s ease-in-out;
+        }
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+        .nav-menu li a:hover {
+            color: #3d2b1f; /* 호버 시 다크 초콜릿 브라운 */
+        }
+        .nav-menu li a:hover::after {
+            transform: scaleX(1);
+        }
+
+     
+        /* PC 버전에서 슬라이드 숨김 */
+        @media (min-width: 1024px) {
+            .slider-container {
+                display: none;
+            }
+            .nav_bottom { padding : 10px 0 10px 0; }
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar (애니메이션 추가) -->
+    <nav class="bg-white shadow-md relative top-0 left-0 w-full z-10">
+        <div class="max-w-6xl mx-auto px-4">
+            <!-- 상단 네비게이션 (로고 & 연락처) -->
+            <div class="flex justify-between items-center py-2 border-b">
+                <a href="index.html" class="text-2xl font-bold "> 에이스컨설팅 </a>
+                <div class="flex space-x-4 text-sm text-gray-700">
+                    <a href="tel:01021951231" class="hover:text-black transition-colors duration-300">📞010-2195-1231</a>
+                    <a href="https://open.kakao.com/o/sXHWGclh" class="hover:text-black transition-colors duration-300">✉톡ID posr</a>
+                </div>
+            </div>
+            <!-- 하단 네비게이션 (메뉴) -->
+            <div class="flex justify-between items-center nav_bottom">
+                <ul class="hidden md:flex space-x-6 nav-menu">
+                    <li><a href="about.html" class="text-gray-700 hover:text-black"> 소개 </a></li>
+                    <li><a href="features.html" class="text-gray-700 hover:text-black"> 정보 </a></li>
+                    <li><a href="success.html" class="text-gray-700 hover:text-black"> 성공사례 </a></li>
+                    <li><a href="contact.html" class="text-gray-700 hover:text-black"> 문의 </a></li>
+                </ul>
+                <!-- 모바일 메뉴 버튼 (햄버거 버튼 & 주변 영역) -->
+                <div id="menu-button" class="md:hidden w-full cursor-pointer flex justify-end py-1">
+                    <button class="text-gray-700 text-2xl px-4 py-0" id="menu-toggle">☰</button>
+                </div>
+            </div>
+        </div>
+        <!-- 모바일 드롭다운 메뉴 -->
+        <div id="mobile-menu" class="hidden md:hidden flex-col bg-white shadow-md transition-all duration-300 overflow-hidden max-h-0 opacity-0">
+            <a href="about.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">소개</a>
+            <a href="features.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">정보</a>
+            <a href="success.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">성공사례</a>
+            <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">문의</a>
+        </div>
+    </nav>
+
+
+
+    <!-- Hero Section -->
+    <header class="text-center py-10 bg_base">
+        <h1 class="text-5xl font-bold px-6 "> 소개  <span class=""></span></h1>
+        <!-- <button class="mt-6 px-6 py-3 bg_btn text-white"> 소개 </button> -->
+    </header>
+    
+    <!-- 브랜드 소개 -->
+    <section class="text-center py-5  bg_btn">
+        <h2 class="text-3xl font-semibold px-6 ">  </h2>
+        <p class="mt-4 text-lg px-6 mx-5 whitespace-pre-line">
+            개발진행중
+        </p>
+    </section>
+
+
+    <!-- 푸터 -->
+    <footer class="py-8 text-center bg-gray-900 text-white">
+        <h2 class="text-2xl font-bold">START YOUR BRAND</h2>
+        <p class="mt-2">지금 시작하세요.</p>
+        <button class="mt-4 px-6 py-3 bg-white text-black"> 전화, 카톡 환영 </button>
+    </footer>
+
+    <!-- Floating Chat & Call Icons -->
+    <div class="floating-icons">
+        <a href="https://open.kakao.com/o/sXHWGclh" target="_blank" title="카톡 상담">
+            <img src="kakao.png" alt="카카오톡">
+        </a>
+        <a href="tel:01021951231" title="전화 상담">
+            <img src="call.png" alt="전화">
+        </a>
+    </div>
+
+
+    <!-- 네비게이션 모바일버전 -->
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            var mobileMenu = document.getElementById('mobile-menu');
+
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.style.maxHeight = "300px";  // 애니메이션 효과
+                mobileMenu.style.opacity = "1";
+            } else {
+                mobileMenu.style.maxHeight = "0";
+                mobileMenu.style.opacity = "0";
+                setTimeout(() => {
+                    mobileMenu.classList.add('hidden');
+                }, 300); // 애니메이션 지속시간 후 숨김 처리
+            }
+        });
+        function toggleMenu() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("open");
+        }
+
+    </script>
+
+    
+</body>
+</html>
