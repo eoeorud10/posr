@@ -108,7 +108,48 @@
             transform: scaleX(1);
         }
 
-     
+         /* 슬라이드 컨테이너 */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .slider {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            width: 100%;
+            flex: 0 0 100%;
+            transition: 1s;
+        }
+        .slider img {
+            width: 100%;
+            height: 600px;
+/*            object-fit: cover;
+            object-position: center;*/
+            position: relative;
+            top: -50px; /* 위로 20px 이동 */
+            right: 250px; /* 위로 20px 이동 */
+        }
+        /* 슬라이드 버튼 */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
         /* PC 버전에서 슬라이드 숨김 */
         @media (min-width: 1024px) {
             .slider-container {
@@ -262,6 +303,90 @@
             menu.classList.toggle("open");
         }
 
+    </script>
+
+     <!-- 섹션 슬라이드 -->
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.slide img');
+        const slider = document.querySelector('.slider');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function startAutoSlide() {
+            slideInterval = setInterval(nextSlide, 3000);
+        }
+
+        function pauseAutoSlide() {
+            clearInterval(slideInterval);
+        }
+
+        function resumeAutoSlide() {
+            resetAutoSlide();
+        }
+
+        function resetAutoSlide() {
+            clearInterval(slideInterval);
+            setTimeout(startAutoSlide, 3000);
+        }
+
+        function showSlide(i) {
+            index = (i + totalSlides) % totalSlides;
+            slides[index].style.transition = "transform 0.5s ease-in-out";
+            slides[index].style.transform = "scale(1.5)";
+            slider.style.transition = "transform 0.5s ease-in-out";
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            
+            setTimeout(() => {
+                slides[index].style.transform = "scale(1)";
+            }, 500);
+        }
+
+        function nextSlide() {
+            slides[index].style.transform = "scale(1.5)";
+            setTimeout(() => {
+                if (index === totalSlides - 1) {
+                    slider.style.transition = "none";
+                    slider.style.transform = "translateX(100%)";
+                    setTimeout(() => {
+                        slider.style.transition = "transform 0.5s ease-in-out";
+                        index = 0;
+                        showSlide(index);
+                    }, 50);
+                } else {
+                    showSlide(index + 1);
+                }
+            }, 100);
+            resetAutoSlide();
+        }
+
+        function prevSlide() {
+            slides[index].style.transform = "scale(1.5)";
+            setTimeout(() => {
+                if (index === 0) {
+                    slider.style.transition = "none";
+                    slider.style.transform = `translateX(-${totalSlides * 100}%)`;
+                    setTimeout(() => {
+                        slider.style.transition = "transform 0.5s ease-in-out";
+                        index = totalSlides - 1;
+                        showSlide(index);
+                    }, 50);
+                } else {
+                    showSlide(index - 1);
+                }
+            }, 100);
+            resetAutoSlide();
+        }
+
+        startAutoSlide();
+
+        function toggleMenu() {
+            const menu = document.querySelector(".nav-menu");
+            menu.classList.toggle("open");
+        }
+    
+
+        
     </script>
 
     
