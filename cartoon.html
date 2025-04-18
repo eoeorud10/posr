@@ -109,13 +109,146 @@
             transform: scaleX(1);
         }
 
-     
+         /* 슬라이드 컨테이너 */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        .slider {
+            display: flex;
+            width: 300%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            width: 100%;
+            flex: 0 0 100%;
+            transition: 1s;
+        }
+        .slider img {
+            width: 100%;
+            height: 600px;
+/*            object-fit: cover;
+            object-position: center;*/
+            position: relative;
+            top: -50px; /* 위로 20px 이동 */
+            right: 250px; /* 위로 20px 이동 */
+        }
+        /* 슬라이드 버튼 */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 18px;
+            z-index: 10;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
         /* PC 버전에서 슬라이드 숨김 */
         @media (min-width: 1024px) {
             .slider-container {
                 display: none;
             }
             .nav_bottom { padding : 10px 0 10px 0; }
+        }
+
+
+
+
+        .gallery-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+          gap: 15px;
+        }
+
+        .gallery-item {
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+          cursor: pointer;
+          transition: transform 0.2s ease;
+          margin: 5px;
+        }
+
+        .gallery-item:hover {
+          transform: scale(1.03);
+        }
+
+        .gallery-item img {
+          width: 100%;
+          height: 200px;
+          display: block;
+        }
+
+        .gallery-item h3 {
+          margin: 10px;
+          font-size: 16px;
+          color: #333;
+        }
+
+        .write-button {
+          display: block;
+          width: 100%;
+          max-width: 200px;
+          margin: 30px auto 0;
+          padding: 12px;
+          font-size: 16px;
+          text-align: center;
+          background-color: #007bff;
+          color: white;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        }
+
+        .write-button:hover {
+          background-color: #0056b3;
+        }
+
+        /* 모달 스타일 */
+        .modal {
+          display: none;
+          position: fixed;
+          z-index: 1000;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          overflow: auto;
+          background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+          margin: 50px auto;
+          display: block;
+          max-width: 90%;
+          max-height: 80vh;
+          border-radius: 10px;
+        }
+
+        .modal-close {
+          position: fixed;
+          top: 20px;
+          right: 30px;
+          color: white;
+          font-size: 40px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+
+        @media screen and (max-width: 600px) {
+          .modal-content {
+            max-width: 95%;
+          }
         }
 
 
@@ -159,22 +292,55 @@
         </div>
     </nav>
 
+   
 
-
-    <!-- Hero Section --> 
-    <header class="text-center py-10 bg_base"> 
-        <h1 class="text-5xl font-bold px-6 "> 소개  <span class=""></span></h1> 
-        <!-- <button class="mt-6 px-6 py-3 bg_btn text-white"> 소개 </button> --> 
-    </header>
-    
-    <!-- 브랜드 소개 -->
-    <section class="text-center py-5  bg_btn">
-        <h2 class="text-3xl font-semibold px-6 ">  </h2>
-        <p class="mt-4 text-lg px-6 mx-5 whitespace-pre-line">
-            <img src="퀸.gif" title="about" width="100%">
-            <img src="퀸수정버전1.png" title="about" width="100%">
-        </p>
+    <!-- 브랜드 성공 사례 -->
+    <section class="py-16 text-center">
+        <h2 class="text-3xl font-bold">화려한녀성의 만화</h2>
+        <p class="mt-4 text-lg px-6"> 화류계 이야기를 그리는 공간입니다. <br> </p>
     </section>
+
+    <!-- 브랜드 지표 -->
+    <section class="py-16 bg-gray-800 text-white text-center">
+        <!-- <h2 class="text-3xl font-semibold"> 최근 기준 </h2> -->
+        <div class="gallery-container py-6">
+            <div class="gallery-item" onclick="openModal(this)">
+              <img src="cartoon_1.png" alt="샘플 이미지 1">
+              <h3>#개빡치는순간 / 비교하고 ㅈㄹ이야</h3>
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+              <img src="cartoon_2.png" alt="샘플 이미지 2">
+              <h3>#날개방 / 놀고싶은데 돈없는 남자들</h3>
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+              <img src="cartoon_3.png" alt="샘플 이미지 3">
+              <h3>#회식방 / 초이스 따지는 거 개많을 때</h3>
+            </div>
+            <div class="gallery-item" onclick="openModal(this)">
+              <img src="cartoon_4.png" alt="샘플 이미지 3">
+              <h3>#음흉한 운전기사 / 나도 여자랑 놀고싶다... 하지만 결말은 죽..</h3>
+            </div>
+
+
+          </div>
+
+          
+    </section>
+
+    <!-- 페이지네이션 버튼 영역 -->
+    <div class="px-6 flex">
+        <div id="pagination" style="text-align: center; margin-top: 30px; margin-bottom: 30px; width: 95%; text-align: center; float: left;"></div>
+        <button style="width: 5%; float: left;">글쓰기</button>
+    </div>
+ 
+
+
+    <!-- 이미지 모달 -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="modal-close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage" src="" alt="">
+  </div>
+
 
 
     <!-- 푸터 -->
@@ -196,6 +362,7 @@
             <img src="call.png" alt="전화">
         </a>
     </div>
+
 
 
 

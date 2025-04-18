@@ -6,6 +6,7 @@
     <title>Start Your Brand</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script> 
+    <script src="script.js"></script> 
     <style>
 
         /*글자색상*/
@@ -182,6 +183,7 @@
                     <li><a href="features.html" class="text-gray-700 hover:text-black"> 정보 </a></li>
                     <li><a href="success.html" class="text-gray-700 hover:text-black"> 성공사례 </a></li>
                     <li><a href="contact.html" class="text-gray-700 hover:text-black"> 여러분께 드리는 글 </a></li>
+                    <li><a href="cartoon.html" class="text-gray-700 hover:text-black"> 화려한녀성의 만화 </a></li>
                 </ul>
                 <!-- 모바일 메뉴 버튼 (햄버거 버튼 & 주변 영역) -->
                 <div id="menu-button" class="md:hidden w-full cursor-pointer flex justify-end py-1">
@@ -195,6 +197,7 @@
             <a href="features.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">정보</a>
             <a href="success.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">성공사례</a>
             <a href="contact.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">여러분께 드리는 글</a>
+            <a href="cartoon.html" class="block py-2 px-4 text-gray-700 hover:bg-gray-200">화려한녀성의 만화</a>
         </div>
     </nav>
 
@@ -325,108 +328,7 @@
     </div>
 
 
-    <!-- 네비게이션 모바일버전 -->
-    <script>
-        document.getElementById('menu-button').addEventListener('click', function() {
-            var mobileMenu = document.getElementById('mobile-menu');
-
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.style.maxHeight = "300px";  // 애니메이션 효과
-                mobileMenu.style.opacity = "1";
-            } else {
-                mobileMenu.style.maxHeight = "0";
-                mobileMenu.style.opacity = "0";
-                setTimeout(() => {
-                    mobileMenu.classList.add('hidden');
-                }, 300); // 애니메이션 지속시간 후 숨김 처리
-            }
-        });
-    </script>
-
-    <!-- 섹션 슬라이드 -->
-    <script>
-        let index = 0;
-        const slides = document.querySelectorAll('.slide img');
-        const slider = document.querySelector('.slider');
-        const totalSlides = slides.length;
-        let slideInterval;
-
-        function startAutoSlide() {
-            slideInterval = setInterval(nextSlide, 3000);
-        }
-
-        function pauseAutoSlide() {
-            clearInterval(slideInterval);
-        }
-
-        function resumeAutoSlide() {
-            resetAutoSlide();
-        }
-
-        function resetAutoSlide() {
-            clearInterval(slideInterval);
-            setTimeout(startAutoSlide, 3000);
-        }
-
-        function showSlide(i) {
-            index = (i + totalSlides) % totalSlides;
-            slides[index].style.transition = "transform 0.5s ease-in-out";
-            slides[index].style.transform = "scale(1.5)";
-            slider.style.transition = "transform 0.5s ease-in-out";
-            slider.style.transform = `translateX(-${index * 100}%)`;
-            
-            setTimeout(() => {
-                slides[index].style.transform = "scale(1)";
-            }, 500);
-        }
-
-        function nextSlide() {
-            slides[index].style.transform = "scale(1.5)";
-            setTimeout(() => {
-                if (index === totalSlides - 1) {
-                    slider.style.transition = "none";
-                    slider.style.transform = "translateX(100%)";
-                    setTimeout(() => {
-                        slider.style.transition = "transform 0.5s ease-in-out";
-                        index = 0;
-                        showSlide(index);
-                    }, 50);
-                } else {
-                    showSlide(index + 1);
-                }
-            }, 100);
-            resetAutoSlide();
-        }
-
-        function prevSlide() {
-            slides[index].style.transform = "scale(1.5)";
-            setTimeout(() => {
-                if (index === 0) {
-                    slider.style.transition = "none";
-                    slider.style.transform = `translateX(-${totalSlides * 100}%)`;
-                    setTimeout(() => {
-                        slider.style.transition = "transform 0.5s ease-in-out";
-                        index = totalSlides - 1;
-                        showSlide(index);
-                    }, 50);
-                } else {
-                    showSlide(index - 1);
-                }
-            }, 100);
-            resetAutoSlide();
-        }
-
-        startAutoSlide();
-
-        function toggleMenu() {
-            const menu = document.querySelector(".nav-menu");
-            menu.classList.toggle("open");
-        }
-    
-
-        
-    </script>
+ 
 
 
 
