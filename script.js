@@ -1,3 +1,4 @@
+/*
 //페이지 네이션
 const galleryItems = document.querySelectorAll(".gallery-item");
       const itemsPerPage = 5; // 한 페이지에 보여줄 갤러리 수
@@ -73,7 +74,7 @@ const galleryItems = document.querySelectorAll(".gallery-item");
 
 
 
-
+*/
 
 
  //네비게이션 모바일버전
