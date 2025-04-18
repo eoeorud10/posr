@@ -99,7 +99,7 @@ const galleryItems = document.querySelectorAll(".gallery-item");
         menu.classList.toggle("open");
     }
 
-
+/*
 //모달
     function openModal(element) {
       const modal = document.getElementById("imageModal");
@@ -112,7 +112,7 @@ const galleryItems = document.querySelectorAll(".gallery-item");
     function closeModal() {
       document.getElementById("imageModal").style.display = "none";
     }
-
+*/
 
 
 
