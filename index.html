@@ -332,6 +332,98 @@
 <script src="navi.js"></script>
 
 
+
+<!-- 팝업 레이어 -->
+<div id="popup" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50 p-10">
+  <div id="popupContent" class="relative bg-white p-4 rounded-lg shadow-lg max-w-3xl max-h-[90vh] overflow-auto">
+    <button onclick="closePopup()" class="absolute top-2 right-2 text-2xl font-bold text-gray-700">&times;</button>
+    <img src="홍보문구1(큰글씨).png" alt="팝업 이미지" class="max-w-full h-auto rounded mb-4">
+    <div id="fixedOption" class="fixed bottom-5 left-1/2 transform -translate-x-1/2 bg-white p-2 rounded shadow text-center">
+      <input type="checkbox" id="noToday" class="mr-2">
+      <label for="noToday" class="text-gray-700 text-sm">오늘 하루 이 창 열지 않기</label>
+    </div>
+  </div>
+</div>
+
+<script>
+// 쿠키 설정
+function setCookie(name, value, days) {
+    var expires = "";
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+// 쿠키 가져오기
+function getCookie(name) {
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0;i < ca.length;i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+// 팝업 열기
+function openPopup() {
+    document.getElementById('popup').classList.remove('hidden');
+}
+
+// 팝업 닫기
+function closePopup() {
+    if (document.getElementById('noToday').checked) {
+        setCookie('popupClosed', 'true', 1); // 하루 동안 유지
+    }
+    document.getElementById('popup').classList.add('hidden');
+}
+
+// 페이지 로드할 때
+window.onload = function() {
+    if (!getCookie('popupClosed')) {
+        openPopup();
+    }
+};
+
+// 배경 클릭하면 팝업 닫기
+document.getElementById('popup').addEventListener('click', function(e) {
+    if (e.target === document.getElementById('popup')) {
+        closePopup();
+    }
+});
+
+// 팝업 드래그 기능
+let popup = document.getElementById('popupContent');
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+popup.addEventListener('mousedown', function(e) {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'LABEL' || e.target.tagName === 'BUTTON') return; // 체크박스, 버튼 클릭은 무시
+    isDragging = true;
+    offsetX = e.clientX - popup.offsetLeft;
+    offsetY = e.clientY - popup.offsetTop;
+    popup.style.position = 'absolute';
+});
+
+document.addEventListener('mousemove', function(e) {
+    if (isDragging) {
+        popup.style.left = (e.clientX - offsetX) + 'px';
+        popup.style.top = (e.clientY - offsetY) + 'px';
+    }
+});
+
+document.addEventListener('mouseup', function() {
+    isDragging = false;
+});
+</script>
+
+
+
     
 </body>
 </html>
