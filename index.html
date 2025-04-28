@@ -347,7 +347,7 @@
 
 <script>
 // 쿠키 설정
-/*function setCookie(name, value, days) {
+function setCookie(name, value, days) {
     var expires = "";
     if (days) {
         var date = new Date();
@@ -368,7 +368,7 @@ function getCookie(name) {
     }
     return null;
 }
-*/
+
 
 // 팝업 열기
 function openPopup() {
@@ -384,11 +384,11 @@ function closePopup() {
 }
 
 // 페이지 로드할 때
-/*window.onload = function() {
-    if (!getCookie('popupClosed')) {
+window.onload = function() {
+    //if (!getCookie('popupClosed')) {
         openPopup();
-    }
-};*/
+    //}
+};
 
 // 배경 클릭하면 팝업 닫기
 document.getElementById('popup').addEventListener('click', function(e) {
